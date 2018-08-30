@@ -5,17 +5,15 @@ const path = require('path');
 module.exports = async function run (dir) {
   const dirContent = await fs.readdir(dir);
 
-  await Promise.all(dirContent
-    .filter(file => file.endsWith('.mkv'))
-    .map(async file => {
-      const filePath = path.join(dir, file);
-      const anime = anitomy.parse(file);
-      const folder = path.join(dir, anime.anime_title);
-      const newFilePath = path.join(folder, file);
+  const animeFiles = dirContent.filter(file => file.endsWith('.mkv'));
 
-      await fs.ensureDir(folder);
-      await fs.move(filePath, newFilePath);
+  for (const animeFile of animeFiles) {
+    const filePath = path.join(dir, animeFile);
+    const anime = anitomy.parse(animeFile);
+    const folder = path.join(dir, anime.anime_title);
+    const newFilePath = path.join(folder, animeFile);
 
-      return newFilePath;
-    }));
+    await fs.ensureDir(folder);
+    await fs.move(filePath, newFilePath);
+  }
 };
