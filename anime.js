@@ -14,6 +14,6 @@ module.exports = async function run (dir) {
     const newFilePath = path.join(folder, animeFile);
 
     await fs.ensureDir(folder);
-    await fs.move(filePath, newFilePath);
+    await fs.move(filePath, newFilePath, {overwrite: true});
   }
 };
