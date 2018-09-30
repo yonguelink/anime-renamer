@@ -23,9 +23,14 @@ yargs
         descrition: 'Folder to rename the animes in',
         type: 'string',
         default: 'C:\\Users\\Isaac\\Downloads'
+      })
+      .option('tries', {
+        description: 'Number of times we should try moving the file before crashing',
+        type: 'number',
+        default: 3
       }),
-    handler ({dir}) {
-      runCommand(require('./anime'), dir);
+    handler ({dir, tries}) {
+      runCommand(require('./anime'), dir, tries);
     }
   })
   .strict()
