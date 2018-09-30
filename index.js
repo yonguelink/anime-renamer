@@ -1,9 +1,14 @@
 const yargs = require('yargs');
+const fs = require('fs-extra');
+const path = require('path');
+const LOG_FILE = path.join(__dirname, 'errors.log');
 
 async function runCommand (fn, ...args) {
   try {
     await fn(...args);
   } catch (err) {
+    const msg = `${new Date()}: ${err}\n`;
+    await fs.appendFile(LOG_FILE, msg);
     console.error(err.stack);
     process.exit(1);
   }
