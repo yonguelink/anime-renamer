@@ -14,7 +14,7 @@ module.exports = async function run (dir, tries) {
 
   for (const animeFile of animeFiles) {
     const filePath = path.join(dir, animeFile);
-    const anime = anitomy.parse(animeFile);
+    const anime = await anitomy(animeFile);
     const folder = path.join(dir, anime.anime_title);
     const newFilePath = path.join(folder, animeFile);
 
