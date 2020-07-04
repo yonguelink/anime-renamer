@@ -4,17 +4,17 @@
   "description": "Rename anime files to their corresponding directories",
   "main": "anime.js",
   "dependencies": {
-    "anitomyscript": "^1.0.1",
-    "eslint": "^5.4.0",
-    "eslint-config-semistandard": "^12.0.1",
-    "eslint-config-standard": "^11.0.0",
+    "anitomyscript": "^2.0.4",
+    "eslint": "^7.4.0",
+    "eslint-config-semistandard": "^15.0.1",
+    "eslint-config-standard": "^14.1.1",
     "eslint-plugin-import": "^2.14.0",
-    "eslint-plugin-node": "^7.0.1",
+    "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^4.0.0",
-    "eslint-plugin-standard": "^3.1.0",
-    "fs-extra": "^7.0.0",
+    "eslint-plugin-standard": "^4.0.1",
+    "fs-extra": "^9.0.1",
     "lodash": "^4.17.10",
-    "yargs": "^12.0.1"
+    "yargs": "^15.4.0"
   },
   "author": "",
   "license": "ISC"
