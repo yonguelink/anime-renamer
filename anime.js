@@ -1,5 +1,5 @@
-const anitomy = require('anitomyscript');
 const fs = require('fs-extra');
+const anitomy = require('anitomy-js');
 const path = require('path');
 const {promisify} = require('util');
 const sleep = promisify(setTimeout);
@@ -14,7 +14,7 @@ module.exports = async function run (dir, tries) {
 
   for (const animeFile of animeFiles) {
     const filePath = path.join(dir, animeFile);
-    const anime = await anitomy(animeFile);
+    const anime = await anitomy.parse(animeFile);
     const folder = path.join(dir, anime.anime_title);
     const newFilePath = path.join(folder, animeFile);
 
